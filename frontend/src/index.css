@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-200: #ddd6fe;
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  --color-brand-800: #5b21b6;
+  --color-brand-900: #4c1d95;
+  --color-brand-950: #3b0764;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #190628;
+  color: #ede9fe;
+}
+
+/* Tarjetas de autenticación (Iniciar sesión / Registrarse) — mismo estilo que las tarjetas de eventos */
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 28px 32px;
+  border-radius: 28px;
+  border: 2px solid rgba(167, 139, 250, 0.5);
+  background: rgba(28, 10, 46, 0.75);
+  box-shadow: 8px 8px 0 0 rgba(124, 58, 237, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.auth-heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 28px;
+  color: #ede9fe;
+}
+
+.auth-subtitle {
+  margin-top: 4px;
+  text-align: center;
+  font-size: 13px;
+  color: #c4b5fd;
+}
+
+.auth-input {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px 18px;
+  border: 1px solid rgba(196, 181, 253, 0.28);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ede9fe;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.auth-input::placeholder {
+  color: #a78bfa;
+}
+
+.auth-input:focus {
+  border-color: var(--color-brand-400);
+}
+
+.auth-button {
+  display: block;
+  width: 100%;
+  margin: 20px auto;
+  padding-block: 15px;
+  border: none;
+  border-radius: 20px;
+  color: #ede9fe;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(45deg, var(--color-brand-700) 0%, var(--color-brand-500) 100%);
+  box-shadow: rgba(124, 58, 237, 0.35) 0px 20px 10px -15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.auth-button:hover:not(:disabled) {
+  transform: scale(1.03);
+  box-shadow: rgba(124, 58, 237, 0.35) 0px 23px 10px -20px;
+}
+
+.auth-button:active:not(:disabled) {
+  transform: scale(0.95);
+  box-shadow: rgba(124, 58, 237, 0.35) 0px 15px 10px -10px;
+}
+
+.auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-link {
+  font-weight: 600;
+  color: #c4b5fd;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Recuadros estilo neo-brutalista (Mis eventos / Crear y Editar evento) */
+.brutal-card {
+  border: 2px solid rgba(167, 139, 250, 0.5);
+  border-radius: 20px;
+  background: rgba(28, 10, 46, 0.72);
+  box-shadow: 8px 8px 0 0 rgba(124, 58, 237, 0.55);
+}
