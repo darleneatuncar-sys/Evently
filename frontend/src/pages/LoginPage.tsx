@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { IconAlert } from '../components/icons'
+import PasswordInput from '../components/PasswordInput'
 import { useAuth } from '../hooks/useAuth'
 
 function LoginPage() {
@@ -50,9 +51,7 @@ function LoginPage() {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
-          <input
-            className="auth-input"
-            type="password"
+          <PasswordInput
             autoComplete="current-password"
             aria-label="Contraseña"
             placeholder="Contraseña"

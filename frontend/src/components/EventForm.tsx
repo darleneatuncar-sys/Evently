@@ -1,10 +1,10 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react'
 import { categoryService } from '../services/categoryService'
 import type { Category, EventPayload } from '../types'
 import { fileToCompressedDataUrl } from '../utils/image'
 import EventImage from './EventImage'
 import LocationAutocomplete from './LocationAutocomplete'
-import { IconAlert } from './icons'
+import { IconAlert, IconCalendar, IconClock } from './icons'
 
 export interface EventFormValues {
   title: string
@@ -45,6 +45,53 @@ interface EventFormProps {
 const inputClass =
   'w-full rounded-xl border border-brand-300/30 bg-[#180722] px-3.5 py-2.5 text-sm text-brand-50 outline-none transition placeholder:text-brand-400 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/30'
 const labelClass = 'mb-1.5 block text-sm font-medium text-brand-200'
+
+interface PickerInputProps {
+  id: string
+  type: 'date' | 'time'
+  value: string
+  onChange: (value: string) => void
+  icon: ReactNode
+}
+
+function PickerInput({ id, type, value, onChange, icon }: PickerInputProps) {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const openPicker = () => {
+    const input = inputRef.current
+    if (!input) return
+    if (typeof input.showPicker === 'function') {
+      try {
+        input.showPicker()
+      } catch {
+        input.focus()
+      }
+    } else {
+      input.focus()
+    }
+  }
+
+  return (
+    <div className="relative">
+      <input
+        ref={inputRef}
+        id={id}
+        type={type}
+        className={`${inputClass} pr-11 [&::-webkit-calendar-picker-indicator]:pointer-events-none [&::-webkit-calendar-picker-indicator]:opacity-0`}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+      />
+      <button
+        type="button"
+        onClick={openPicker}
+        aria-label={type === 'date' ? 'Abrir calendario' : 'Abrir selector de hora'}
+        className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-lg text-brand-300 transition hover:bg-brand-300/10 hover:text-brand-100"
+      >
+        {icon}
+      </button>
+    </div>
+  )
+}
 
 function EventForm({ initialValues, submitLabel, onSubmit }: EventFormProps) {
   const [values, setValues] = useState<EventFormValues>({ ...EMPTY_VALUES, ...initialValues })
@@ -193,12 +240,12 @@ function EventForm({ initialValues, submitLabel, onSubmit }: EventFormProps) {
           <label className={labelClass} htmlFor="date">
             Fecha
           </label>
-          <input
+          <PickerInput
             id="date"
             type="date"
-            className={inputClass}
             value={values.date}
-            onChange={(event) => update('date', event.target.value)}
+            onChange={(value) => update('date', value)}
+            icon={<IconCalendar className="h-4 w-4" />}
           />
         </div>
 
@@ -206,12 +253,12 @@ function EventForm({ initialValues, submitLabel, onSubmit }: EventFormProps) {
           <label className={labelClass} htmlFor="time">
             Hora
           </label>
-          <input
+          <PickerInput
             id="time"
             type="time"
-            className={inputClass}
             value={values.time}
-            onChange={(event) => update('time', event.target.value)}
+            onChange={(value) => update('time', value)}
+            icon={<IconClock className="h-4 w-4" />}
           />
         </div>
 

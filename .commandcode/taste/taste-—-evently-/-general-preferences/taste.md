@@ -1,0 +1,15 @@
+# Taste — Evently / general preferences
+- Prefers simple, easy-to-understand code; explicitly avoids overengineering. Confidence: 0.9
+- Avoids adding unnecessary dependencies/libraries. Confidence: 0.8
+- Uses TypeScript with clear, descriptive file and folder names. Confidence: 0.8
+- Dislikes duplicated code and hiding important logic inside giant components. Confidence: 0.75
+- Prefers frontend and backend physically separated in distinct folders with clear separation of responsibilities. Confidence: 0.75
+- Prefers a layered backend architecture (routes → controllers → services → ORM → database). Confidence: 0.7
+- Works incrementally, step by step: build only what each step requires and do not advance to the next step until asked. Confidence: 0.85
+- Wants only the requested scope implemented — no unrequested features. Confidence: 0.85
+- Asks to inspect the current project structure before modifying files, to avoid overwriting existing work. Confidence: 0.8
+- Avoids Docker unless it is actually needed. Confidence: 0.6
+- Optimizes for a small, clean MVP that is fast to build and easy to explain (e.g., academic presentation). Confidence: 0.7
+- Communicates in Spanish and expects responses/explanations in Spanish. Confidence: 0.85
+- Expects an end-of-task summary: what files were created, the purpose of each main folder, the commands to run, and what remains pending. Confidence: 0.75
+- Appreciates being told which non-obvious decisions were made (e.g., version pinning, environment quirks) so they can approve or change them. Confidence: 0.7

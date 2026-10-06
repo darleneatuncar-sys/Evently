@@ -152,7 +152,7 @@ function RegistrationModal({ event, open, onClose, onRegistered }: RegistrationM
         <div className="space-y-5 text-center">
           <div className="text-4xl">🎉</div>
           <div className="space-y-1">
-            <h3 className="text-lg font-bold text-gray-900">¡Registro confirmado!</h3>
+            <h3 className="text-lg font-bold text-gray-900">¡Registro completado!</h3>
             <p className="text-sm text-gray-500">
               {result.emailSent
                 ? 'Tu entrada fue enviada a tu correo electrónico.'

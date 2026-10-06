@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { IconAlert } from '../components/icons'
+import PasswordInput from '../components/PasswordInput'
 import { useAuth } from '../hooks/useAuth'
 
 function RegisterPage() {
@@ -74,18 +75,14 @@ function RegisterPage() {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <input
-          className="auth-input"
-          type="password"
+        <PasswordInput
           autoComplete="new-password"
           aria-label="Contraseña"
           placeholder="Contraseña (mínimo 6 caracteres)"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <input
-          className="auth-input"
-          type="password"
+        <PasswordInput
           autoComplete="new-password"
           aria-label="Confirmar contraseña"
           placeholder="Repite tu contraseña"

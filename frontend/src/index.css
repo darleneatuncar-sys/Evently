@@ -80,6 +80,37 @@ body {
   border-color: var(--color-brand-400);
 }
 
+.auth-input-wrap {
+  position: relative;
+  margin-top: 15px;
+}
+
+.auth-input-wrap .auth-input {
+  margin-top: 0;
+  padding-right: 46px;
+}
+
+.auth-eye-toggle {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #a78bfa;
+  line-height: 0;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.auth-eye-toggle:hover {
+  color: #ede9fe;
+}
+
 .auth-button {
   display: block;
   width: 100%;

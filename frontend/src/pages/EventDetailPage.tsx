@@ -101,7 +101,7 @@ function EventDetailPage() {
     }
   }
 
-  if (loading) {
+  if (loading && !event) {
     return <Loader label="Cargando evento..." fullHeight />
   }
 
